@@ -23,7 +23,7 @@ function addDiv(numberOfDivs) {
 }
 
 function changeColor() {
-  this.style.backgroundColor = "#000000";
+  this.style.backgroundColor = "#f8f8ff";
 }
 
 window.onload = addDiv(16);
