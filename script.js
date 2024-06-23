@@ -1,25 +1,24 @@
 var container = document.querySelector(".container");
 var button = document.querySelector("#clearButton");
 
-function addDiv(numberOfDivsToCreate) {
-  var gridCellDimensions = (600 / numberOfDivsToCreate - 2).toFixed(2);
-  var gridSize = Math.pow(numberOfDivsToCreate, 2);
+function addDiv(numberOfDivs) {
+  var gridSize = numberOfDivs ** 2;
+
+  //Changes grid size and number of grid items depending on the parameter value
+  container.style.gridTemplateColumns = `repeat(${numberOfDivs}, 1fr)`;
+  container.style.gridTemplateRows = `repeat(${numberOfDivs}, 1fr)`;
 
   // create grid squares & add to container
-  for (var rows = 0; rows < gridSize; rows++) {
-    for (var columns = 0; columns < gridSize; columns++) {
-      var newDiv = document.createElement("div");
-      container.appendChild(newDiv);
-      newDiv.classList.add("grid");
-      newDiv.style.height = gridCellDimensions + "px";
-      newDiv.style.width = gridCellDimensions + "px";
-      newDiv.style.border = "1px solid black";
-      gridSize--;
-    }
+
+  for (let i = 1; i <= gridSize; i++) {
+    const gridItem = document.createElement("div");
+    gridItem.classList.add("grid-item");
+    gridItem.style.border = "1px solid black";
+    gridItem.textContent = " ";
+    container.appendChild(gridItem);
   }
-  var gridCells = document.querySelectorAll(".grid");
+  var gridCells = document.querySelectorAll(".grid-item");
   gridCells.forEach((cell) => cell.addEventListener("mouseover", changeColor));
-  console.log(gridCellDimensions);
   console.log("Grid has been created!!");
 }
 
