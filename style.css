@@ -7,22 +7,23 @@ body {
 
 .header {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   gap: 30px;
   margin-bottom: 20px;
 }
 .container {
-  margin: 0 auto;
-  padding: 0px;
-  width: 600px;
-  height: 600px;
-  border: 5px solid black;
+  display: grid;
+  /* Initial grid value is always 16 x 16 */
+  grid-template-columns: repeat(16, 1fr);
+  grid-template-rows: repeat(16, 1fr);
+  width: 47.62rem;
+  height: 47.62rem;
+  margin: auto;
+  border: 2px solid black;
 }
-.grid {
-  display: inline-block;
-  margin: 0px;
-  border: none;
-  padding: 0px;
-  box-sizing: content-box;
+.grid-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
