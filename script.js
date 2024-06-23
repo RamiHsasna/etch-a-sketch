@@ -1,7 +1,7 @@
 var container = document.querySelector(".container");
 var button = document.querySelector("#clearButton");
 
-function addDiv(numberOfDivs) {
+function createGrid(numberOfDivs) {
   var gridSize = numberOfDivs ** 2;
 
   //Changes grid size and number of grid items depending on the parameter value
@@ -26,4 +26,12 @@ function changeColor() {
   this.style.backgroundColor = "#f8f8ff";
 }
 
-window.onload = addDiv(16);
+button.addEventListener("click", function clearGrid() {
+  let gridSize = prompt("Enter grid size");
+  if (gridSize < 0 || gridSize > 100) prompt("Enter size between 0 and 100");
+  while (container.firstChild) {
+    container.removeChild(container.firstChild);
+  }
+  createGrid(gridSize);
+});
+window.onload = createGrid(16);
